@@ -1,0 +1,16 @@
+type UserPostalCode {
+    code: Int!
+    createdAt: Datetime!
+}
+
+type User {
+    id: ID!
+    email: String!
+    postalCode: UserPostalCode!
+    firstName: String!
+    lastName: String!
+    username: String!
+    avatar: String
+    createdAt: Datetime!
+    updatedAt: Datetime!
+}
