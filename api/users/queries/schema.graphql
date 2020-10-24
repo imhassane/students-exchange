@@ -1,7 +1,21 @@
-type Query {
+# import User from "./user.graphql"
 
+scalar Datetime
+
+type AuthToken {
+    token: String!
+    expiredAt: Datetime!
 }
 
-type Mutation {
+extend type Query {
+    user(username: String!): User!
+}
 
+extend type Mutation {
+    authenticate(email: String!, password: String!): AuthToken!
+
+    createUser(email: String!, password: String!, postalCode: Int!, firstName: String!, lastName: String!): User!
+    updatePassword(password: String!, repeat: String!): String!
+    updatePostalCode(postalCode: Int!): String!
+    updateProfil(firstName: String!, lastName: String!, username: String!): User!
 }
